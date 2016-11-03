@@ -6,3 +6,4 @@ MSc thesis template for Amirkabir University of Technology with XePersian packag
 \newcommand{\examinerFirstLatin}{Dr. Examiner #01}
 \newcommand{\examinerSecondLatin}{Dr. Examiner #02}
 ```
+You can leave them blank if you don't want them in thesis cover.
