@@ -1,0 +1,165 @@
+% define the document type...
+\documentclass [
+	a4paper, % type of the paper...
+	12pt, % set the size of the main font in the document...
+	oneside % sides of the paper...
+] {report} % for longer reports containing several chapters, small books, thesis...
+
+% this is for prime in mathematic formulas...
+\newcommand* {\everymodeprime} {
+	\ensuremath {\prime}
+}
+
+% this part is for code styling inside document...
+\usepackage {fancyvrb}
+\DefineVerbatimEnvironment {code} {Verbatim} {fontsize = \small}
+\DefineVerbatimEnvironment {example} {Verbatim} {fontsize = \small}
+
+% make the meta information for the pdf file...
+\usepackage [
+	pdfauthor = {Soroush Kazemi},
+	pdftitle = {MSc Project Thesis},
+	pdfsubject = {MSc Project Thesis},
+	pdfkeywords = {MSc Project},
+	breaklinks = true
+] {hyperref}
+
+% mathematic package...
+\usepackage {amsmath}
+
+% define color for table...
+\usepackage [table] {xcolor}
+\definecolor {gray} {rgb} {.4, .4, .4}
+
+% to import images...
+\usepackage {graphicx}
+
+% \usepackage {etoolbox}
+
+% make all the images centre in horizontal alignment...
+\makeatletter
+\g@addto@macro\@floatboxreset\centering
+\makeatother
+
+% package for changing headings style...
+\usepackage {fancyhdr}
+
+% setting the margins of page...
+\usepackage [
+	top = 3cm,
+	right = 3cm,
+	bottom = 2.5cm,
+	left = 2.5cm
+] {geometry}                 
+
+% multiline comments...
+\usepackage {comment}
+
+% force figure placement in text...
+\usepackage {float}
+
+% add multi-row property to tables...
+\usepackage {multirow}
+
+% remove ugly borders around clickable hyperlinks...
+\hypersetup {hidelinks}
+
+% add references in table of contents...
+\usepackage [
+	nottoc,
+	notlot,
+	notlof
+] {tocbibind}
+
+% pushes the footnote to the bottom of the page...
+\usepackage [bottom] {footmisc}
+
+% import the xepersian package...
+\usepackage {xepersian}
+
+% root directory for images...
+\graphicspath {{images/}}
+
+% make the normal pages header...
+\pagestyle {fancy}
+% page number at the left side of header...
+\lhead {\thepage}
+% chapter title at the right side of header...
+\rhead {\leftmark}
+
+% override the references section title name...
+\renewcommand\bibname {فهرست مراجع}
+
+% set the default font family and font size...
+\settextfont [Scale = 1.1] {B Nazanin}
+\setdigitfont [Scale = 1.1] {B Nazanin}
+\setlatintextfont [Scale = 1.05] {LinLibertine}
+
+% some constant variables...
+\input {TeX/constants}
+% input the cover information for persian cover...
+\input {TeX/fa/cover_info}
+% input the cover information for english cover...
+\input {TeX/en/cover_info}
+% input symbols used in the thesis...
+\input {TeX/symbols}
+% some helper functions...
+\input {TeX/functions}
+
+% define line height...
+\linespread {1.35}
+
+% begin the document...
+\begin {document}
+	
+	% the cover page...
+	\include {TeX/fa/cover}
+	
+	% submission page...
+	\include {TeX/fa/submission}
+	
+	% evaluation page...
+	\include {TeX/fa/evaluation}
+	
+	% acknowledgements page...
+	\include {TeX/fa/acknowledgements}
+	
+	% alphabetic page numbering for non-report pages...
+	\pagenumbering {alph}
+	
+	% the abstract page...
+	\include {TeX/fa/abstract}
+
+	% table of content...
+	\tableofcontents
+	
+	% group the list of figures, list of tables and table of contents in one page...
+	\begingroup
+		\let\clearpage\relax
+		% list of figures...
+		\listoffigures
+		% list of tables...
+		\listoftables
+	\endgroup
+
+	% begin the arabic page numbering from now on...
+	\pagenumbering {arabic}
+	
+	% the report body...
+	\include {TeX/body/1-introduction}
+	\include {TeX/body/2-related_works}
+	\include {TeX/body/3-proposed_method}
+	\include {TeX/body/4-evaluation}
+	\include {TeX/body/5-conclusion}
+	\include {TeX/body/6-references}
+	
+	% appendixes section...
+	\begin {latin}
+		% english abstract page...
+		\include {TeX/en/abstract}
+		
+		% english cover page...
+		\include {TeX/en/cover}
+	\end {latin}
+
+\end {document}

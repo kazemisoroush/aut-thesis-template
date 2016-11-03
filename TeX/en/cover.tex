@@ -1,0 +1,53 @@
+% remove page style from this specific page...
+\thispagestyle{empty}
+
+% begin the title...
+\begin{center}
+	% add the logo...
+	\includegraphics[scale=1.5]{logo}
+	\mediumGap
+	% report title...
+	\huge \href{\universityLink}{\universityTitleLatin}
+	\smallGap
+	% university title...
+	\large (\universitySubTitleLatin)
+	\smallGap
+	% department title...
+	\Large \href{\departementLink}{\departementLatin}
+	\bigGap
+	% report type...
+	\Large \reportTypeLatin
+	\smallGap
+	% field of study...
+	\Large \fieldLatin Field
+	\bigGap
+	% report title...
+	\large Title
+	\smallGap
+	\reportTitleLatin
+	\bigGap
+	% author information...
+	\large By
+	\smallGap
+	\Large \href{\reportAuthorLink}{\reportAuthorLatin}
+	\bigGap
+	% instructor information...
+	\large Supervisor
+	\smallGap
+	\Large \instructorLatin
+	\bigGap
+	% referees informations...
+	\isDefined {\refereeFirstLatin} {
+		% if first referee is defined then...
+		\large Jury
+		\smallGap
+		\Large \refereeFirstLatin
+		\isDefined {\refereeSecondLatin} {
+			% if second referee is defined then...
+			\smallGap
+			\Large \refereeSecondLatin
+		} {} % else is empty...
+		\bigGap
+	} {} % else is empty...
+	\normalsize \reportDateLatin
+\end{center}

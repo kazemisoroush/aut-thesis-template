@@ -1,0 +1,53 @@
+% remove page style from this specific page...
+\thispagestyle{empty}
+
+% begin the title...
+\begin{center}
+	% add the logo...
+	\includegraphics[scale=1.5]{logo}
+	\mediumGap
+	% report title...
+	\huge \href{\universityLink}{\universityTitle}
+	\smallGap
+	% university title...
+	\large (\universitySubTitle)
+	\smallGap
+	% department title...
+	\Large \href{\departementLink}{\departement}
+	\bigGap
+	% report type...
+	\Large \reportType
+	\smallGap
+	% field of study...
+	\Large گرایش \field
+	\bigGap
+	% report title...
+	\large عنوان
+	\smallGap
+	\reportTitle
+	\bigGap
+	% author information...
+	\large نگارش
+	\smallGap
+	\Large \href{\reportAuthorLink}{\reportAuthor}
+	\bigGap
+	% instructor information...
+	\large استاد راهنما
+	\smallGap
+	\Large \instructor
+	\bigGap
+	% referees informations...
+	\isDefined {\refereeFirst} {
+		% if first referee is defined then...
+		\large داوران
+		\smallGap
+		\Large \refereeFirst	
+		\isDefined {\refereeSecond} {
+			% if second referee is defined then...
+			\smallGap
+			\Large \refereeSecond
+		} {} % else is empty...
+		\bigGap
+	} {} % else is empty...
+	\normalsize \reportDate
+\end{center}
