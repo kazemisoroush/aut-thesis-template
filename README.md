@@ -1,3 +1,3 @@
 # Thesis Template for AUT
 
-MSc thesis template for Amirkabir University of Technology.
+MSc thesis template for Amirkabir University of Technology with XePersian package.
